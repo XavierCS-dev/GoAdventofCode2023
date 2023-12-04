@@ -24,10 +24,10 @@ func main() {
 
 func serve(write http.ResponseWriter, request *http.Request) {
 	if request.URL.Path == "/day_one/part_one" {
-		io.WriteString(write, strconv.Itoa(day_1.Part_one()))
+		io.WriteString(write, strconv.Itoa(day_1.PartOne()))
 	} else if request.URL.Path == "/day_one/part_two" {
-        io.WriteString(write, strconv.Itoa(day_1.Part_two()))
-    } else {
+        io.WriteString(write, strconv.Itoa(day_1.PartTwo()))
+	} else {
 		io.WriteString(write, "AoC Challenge 2023")
 	}
 }
