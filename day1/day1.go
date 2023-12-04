@@ -12,7 +12,7 @@ import (
 func PartTwo() int {
     num_map := map[string]rune{"one": '1', "two": '2', "three": '3', "four": '4', "five": '5',
         "six": '6', "seven": '7', "eight": '8', "nine": '9'}
-    file, error := os.Open("input.txt")
+    file, error := os.Open("day1/input.txt")
 	if error != nil {
 		log.Fatal(error)
 	}
@@ -48,7 +48,7 @@ func PartTwo() int {
 }
 
 func PartOne() int {
-    file, error := os.Open("input.txt")
+    file, error := os.Open("day1/input.txt")
 	if error != nil {
 		log.Fatal(error)
 	}

@@ -1,7 +1,8 @@
 package main
 
 import (
-	"github.com/XavierCS-dev/GoAdventofCode2023/day_1"
+	"github.com/XavierCS-dev/GoAdventofCode2023/day1"
+    "github.com/XavierCS-dev/GoAdventofCode2023/day2"
 	"fmt"
 	"io"
 	"log"
@@ -14,6 +15,7 @@ func main() {
 	http.HandleFunc("/", serve)
 	http.HandleFunc("/day_one/part_one", serve)
 	http.HandleFunc("/day_one/part_two", serve)
+	http.HandleFunc("/day_two/part_one", serve)
 	socket := "127.0.0.1:8080"
 	fmt.Printf("Server: http://%v\n", socket)
 	error := http.ListenAndServe(socket, nil)
@@ -23,13 +25,17 @@ func main() {
 }
 
 func serve(write http.ResponseWriter, request *http.Request) {
-	if request.URL.Path == "/day_one/part_one" {
-		io.WriteString(write, strconv.Itoa(day_1.PartOne()))
-	} else if request.URL.Path == "/day_one/part_two" {
-        io.WriteString(write, strconv.Itoa(day_1.PartTwo()))
-	} else {
-		io.WriteString(write, "AoC Challenge 2023")
-	}
+    switch request.URL.Path {
+        case "/day_one/part_one" :
+            io.WriteString(write, strconv.Itoa(day1.PartOne()))
+        case "/day_one/part_two":
+            io.WriteString(write, strconv.Itoa(day1.PartTwo()))
+        case "/day_two/part_one":
+            io.WriteString(write, strconv.Itoa(day2.PartOne()))
+        default:
+            io.WriteString(write, "AoC Challenge 2023")
+    }
+
 }
 
 
