@@ -11,6 +11,7 @@ import (
 
 func PartTwo() int {
 	file, err := os.Open("day2/input.txt")
+	defer file.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -64,6 +65,7 @@ func PartOne() int {
 	green := 13
 	blue := 14
 	file, err := os.Open("day2/input.txt")
+	defer file.Close()
 	if err != nil {
 		log.Fatal(err)
 	}

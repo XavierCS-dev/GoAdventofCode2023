@@ -11,6 +11,7 @@ import (
 
 func PartOne() int {
 	file, err := os.Open("day4/input.txt")
+	defer file.Close()
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -18,8 +19,7 @@ func PartOne() int {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		matches := 0
-		line := scanner.Text()
-		line = line[10:]
+		line := scanner.Text()[10:]
 		vals := strings.Fields(line)
 		have := vals[:10]
 		winning := vals[11:]
